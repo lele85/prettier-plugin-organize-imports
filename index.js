@@ -95,4 +95,10 @@ exports.parsers = {
 			? (text, options) => organizeImports(typescriptParsers.typescript.preprocess(text, options), options)
 			: organizeImports,
 	},
+	javascript: {
+		...typescriptParsers.typescript,
+		preprocess: typescriptParsers.typescript.preprocess
+			? (text, options) => organizeImports(typescriptParsers.typescript.preprocess(text, options), options)
+			: organizeImports,
+	},
 };
